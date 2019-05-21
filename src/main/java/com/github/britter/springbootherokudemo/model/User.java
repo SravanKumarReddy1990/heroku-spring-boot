@@ -26,12 +26,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
 
-    private String username;
+    private String username="";
 
-    private String password;
+    private String password="";
 
     @Transient
-    private String passwordConfirm;
+    private String passwordConfirm="";
 
     @ManyToMany
     private Set<Role> roles;
