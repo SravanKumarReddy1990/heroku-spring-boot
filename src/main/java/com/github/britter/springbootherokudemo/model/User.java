@@ -44,11 +44,11 @@ public class User {
         this.user_id = user_id;
     }
 
-    public String getUsername() {
+    public Long getUsername() {
         return user_id;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(Long username) {
         this.user_id = username;
     }
 
