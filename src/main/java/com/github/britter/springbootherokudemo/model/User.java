@@ -53,8 +53,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.user_id = Integer.parseInt(username);
-        this.id = Integer.parseInt(username);
+        this.user_id = username;
         this.username=username;
     }
 
