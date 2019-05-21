@@ -25,7 +25,7 @@ public class GreetingController {
 
     @RequestMapping(value ={"/","/login1"})
     public String staticResource(Model model) {
-        return "login1?language=en";
+        return "login1";
     }
     @RequestMapping("/home")
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
