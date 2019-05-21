@@ -34,7 +34,7 @@ public class Config extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver getViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/html");
+        resolver.setPrefix("/WEB-INF/html/");
         resolver.setSuffix(".html");
         return resolver;
     }
