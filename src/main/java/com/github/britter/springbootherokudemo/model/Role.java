@@ -24,11 +24,11 @@ import java.util.Set;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long role_id;
+    private Long id;
 
-    private String name;
+    private String rolename;
 
-    @ManyToMany(mappedBy = "role_id")
+    @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 
     public Long getId() {
@@ -39,12 +39,12 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
+    public String getRolename() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
     }
 
     public Set<User> getUsers() {
