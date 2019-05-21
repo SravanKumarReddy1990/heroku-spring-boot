@@ -18,16 +18,18 @@ package com.github.britter.springbootherokudemo.model;
 
 import javax.persistence.*;
 import java.util.Set;
+import javax.persistence.Column;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
-
+    @Column(name = "userid")
+    private int user_id;
+    @Column(name = "username")
     private String username="";
-
+    @Column(name = "password")
     private String password="";
 
     @Transient
