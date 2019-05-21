@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GreetingController {
 
-    @RequestMapping(value = { "/?language=en", "/login1?language=en" })
+    @RequestMapping(value = { "/", "/login1" })
     public String staticResource(Model model) {
         return "login1";
     }
