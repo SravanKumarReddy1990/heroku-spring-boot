@@ -25,13 +25,13 @@ import javax.persistence.Column;
 public class User {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private int user_id;
+    @Column(name = "userid")
+    private String user_id;
     @Column(name = "username")
     private String username="";
     @Column(name = "password")
     private String password="";
-    @Column(name = "id")
+    @Column(name = "role_id")
     private int id=0;
 
     @Transient
@@ -40,11 +40,11 @@ public class User {
     @ManyToMany
     private Set<Role> roles;
 
-    public int getUser_id() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 
