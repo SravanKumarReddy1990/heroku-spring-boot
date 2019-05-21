@@ -23,9 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GreetingController {
 
-    @RequestMapping(value ="/login1?language=en")
+    @RequestMapping(value ="/login1")
     public String staticResource(Model model) {
-        return "login1";
+        return "login1?language=en";
     }
     @RequestMapping("/home")
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
