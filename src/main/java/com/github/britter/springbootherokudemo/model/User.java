@@ -42,7 +42,7 @@ public class User {
         return user_id;
     }
 
-    public void setUser_id(Long user_id) {
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
 
@@ -51,7 +51,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.user_id = Integer.parseInnt(username);
+        this.user_id = Integer.parseInt(username);
         this.username=username;
     }
 
