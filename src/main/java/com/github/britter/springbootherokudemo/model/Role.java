@@ -40,7 +40,7 @@ public class Role {
     }
 
     public String getRolename() {
-        return name;
+        return rolename;
     }
 
     public void setRolename(String rolename) {
