@@ -13,39 +13,60 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.britter.springbootherokudemo.service;
+package com.github.britter.springbootherokudemo;
 
 
-import com.github.britter.springbootherokudemo.model.Role;
-import com.github.britter.springbootherokudemo.model.User;
-import com.github.britter.springbootherokudemo.repository.UserRepository;
+import java.util.ArrayList;
+import java.util.List;
+ 
+import org.o7planning.sbsecurity.dao.AppUserDAO;
+import org.o7planning.sbsecurity.entity.AppUser;
+import org.o7planning.sbsecurity.dao.AppRoleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import java.util.HashSet;
-import java.util.Set;
-
+ 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService{
+public class UserDetailsServiceImpl implements UserDetailsService {
+ 
     @Autowired
-    private UserRepository userRepository;
-
+    private AppUserDAO appUserDAO;
+ 
+    @Autowired
+    private AppRoleDAO appRoleDAO;
+ 
     @Override
-    @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) {
-        User user = userRepository.findByUsername(username);
-        if (user == null) throw new UsernameNotFoundException(username);
-
-        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        for (Role role : user.getRoles()){
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.getRolename()));
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        AppUser appUser = this.appUserDAO.findUserAccount(userName);
+ 
+        if (appUser == null) {
+            System.out.println("User not found! " + userName);
+            throw new UsernameNotFoundException("User " + userName + " was not found in the database");
         }
-
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
+ 
+        System.out.println("Found User: " + appUser);
+ 
+        // [ROLE_USER, ROLE_ADMIN,..]
+        List<String> roleNames = this.appRoleDAO.getRoleNames(appUser.getUserId());
+ 
+        List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
+        if (roleNames != null) {
+            for (String role : roleNames) {
+                // ROLE_USER, ROLE_ADMIN,..
+                GrantedAuthority authority = new SimpleGrantedAuthority(role);
+                grantList.add(authority);
+            }
+        }
+ 
+        UserDetails userDetails = (UserDetails) new User(appUser.getUserName(), //
+                appUser.getEncrytedPassword(), grantList);
+ 
+        return userDetails;
     }
+ 
 }
