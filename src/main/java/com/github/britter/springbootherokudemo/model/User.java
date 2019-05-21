@@ -45,11 +45,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return user_id;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.user_id = username;
     }
 
     public String getPassword() {
