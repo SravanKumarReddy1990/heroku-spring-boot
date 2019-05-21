@@ -38,15 +38,15 @@ public class GreetingController {
     @Autowired
     private UserValidator userValidator;
 
-    @RequestMapping("/registration")
+    @RequestMapping(value="/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
 
         return "registration";
     }
 
-    @RequestMapping("/registration",method = RequestMethod.GET)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+    @RequestMapping(value="/registration",method = RequestMethod.GET)
+    public String registration1(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
@@ -60,7 +60,7 @@ public class GreetingController {
         return "redirect:/welcome";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value="/login")
     public String login(Model model, String error, String logout) {
         if (error != null)
             model.addAttribute("error", "Your username and password is invalid.");
@@ -71,12 +71,12 @@ public class GreetingController {
         return "login";
     }
 
-    @RequestMapping({"/", "/welcome"})
+    @RequestMapping(value={"/", "/welcome"})
     public String welcome(Model model) {
         return "welcome";
     }
 
-    @RequestMapping(value ={"/","/login1"})
+    @RequestMapping(value ="/login1")
     public String staticResource(Model model) {
         return "login1";
     }
