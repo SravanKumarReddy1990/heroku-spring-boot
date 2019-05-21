@@ -19,9 +19,9 @@ package com.github.britter.springbootherokudemo;
 import java.util.ArrayList;
 import java.util.List;
  
-import org.o7planning.sbsecurity.dao.AppUserDAO;
-import org.o7planning.sbsecurity.entity.AppUser;
-import org.o7planning.sbsecurity.dao.AppRoleDAO;
+import com.github.britter.springbootherokudemo.dao.AppUserDAO;
+import com.github.britter.springbootherokudemo.entity.AppUser;
+import com.github.britter.springbootherokudemo.dao.AppRoleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

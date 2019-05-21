@@ -18,7 +18,7 @@ package com.github.britter.springbootherokudemo;
 
 import java.security.Principal;
  
-import org.o7planning.sbsecurity.utils.WebUtils;
+import com.github.britter.springbootherokudemo.utils.WebUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
