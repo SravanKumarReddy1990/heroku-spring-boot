@@ -7,13 +7,18 @@
 <html>
 <head>
  
-<meta charset="UTF-8">
+<meta charset="UTF-8"></meta>
  
 <title><spring:message code="label.title" /></title>
 </head>
 <body>
  
-   
+    <div style="text-align: right;padding:5px;margin:5px 0px;background:#ccc;">
+       <a href="${pageContext.request.contextPath}/login1?language=en">Login (English)</a>
+       &nbsp;|&nbsp;
+       <a href="${pageContext.request.contextPath}/login1?language=tel">Login (Telugu)</a>
+    </div>
+ 
     <form method="post" action="">
         <table>
             <tr>
