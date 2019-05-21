@@ -18,7 +18,7 @@ package com.github.britter.springbootherokudemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 @SpringBootApplication(scanBasePackages = "com.github.britter.springbootherokudemo")
 public class WebApplication extends SpringBootServletInitializer {
