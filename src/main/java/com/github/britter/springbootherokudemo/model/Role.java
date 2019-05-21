@@ -24,19 +24,19 @@ import java.util.Set;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long role_id;
 
     private String rolename;
 
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 
-    public Long getId() {
-        return id;
+    public Long getRole_id() {
+        return role_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRole_id(Long role_id) {
+        this.role_id = role_id;
     }
 
     public String getRolename() {
