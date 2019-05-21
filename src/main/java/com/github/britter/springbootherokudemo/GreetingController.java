@@ -45,7 +45,7 @@ public class GreetingController {
         return "registration";
     }
 
-    @RequestMapping(value="/registration",method = RequestMethod.GET)
+    @RequestMapping(value="/registration",method = RequestMethod.POST)
     public String registration1(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
 
