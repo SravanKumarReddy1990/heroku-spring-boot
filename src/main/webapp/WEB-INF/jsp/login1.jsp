@@ -17,6 +17,8 @@
        <a href="${pageContext.request.contextPath}/login1?language=en">Login (English)</a>
        &nbsp;|&nbsp;
        <a href="${pageContext.request.contextPath}/login1?language=tel">Login (Telugu)</a>
+       &nbsp;|&nbsp;
+       <a href="${pageContext.request.contextPath}/login1?language=hi">Login (Hindhi)</a>
     </div>
  
     <form method="post" action="">
