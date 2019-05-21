@@ -38,7 +38,7 @@ public class User {
     @ManyToMany
     private Set<Role> roles;
 
-    public Long getUser_id() {
+    public int getUser_id() {
         return user_id;
     }
 
@@ -51,7 +51,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.user_id = Long.parseLong(username);
+        this.user_id = Integer.parseInnt(username);
         this.username=username;
     }
 
