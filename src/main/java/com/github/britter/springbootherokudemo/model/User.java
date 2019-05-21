@@ -31,6 +31,8 @@ public class User {
     private String username="";
     @Column(name = "password")
     private String password="";
+    @Column(name = "id")
+    private int id=0;
 
     @Transient
     private String passwordConfirm="";
@@ -52,6 +54,7 @@ public class User {
 
     public void setUsername(String username) {
         this.user_id = Integer.parseInt(username);
+        this.id = Integer.parseInt(username);
         this.username=username;
     }
 
