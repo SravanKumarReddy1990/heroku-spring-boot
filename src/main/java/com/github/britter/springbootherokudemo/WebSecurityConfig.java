@@ -19,7 +19,7 @@ package com.github.britter.springbootherokudemo;
 
 import javax.sql.DataSource;
  
-import org.o7planning.sbsecurity.service.UserDetailsServiceImpl;
+import com.github.britter.springbootherokudemo.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
