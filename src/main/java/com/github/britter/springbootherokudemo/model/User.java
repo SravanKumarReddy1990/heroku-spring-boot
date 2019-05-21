@@ -24,7 +24,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
 
     private String username;
 
@@ -36,12 +36,12 @@ public class User {
     @ManyToMany
     private Set<Role> roles;
 
-    public Long getId() {
-        return id;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
     public String getUsername() {
