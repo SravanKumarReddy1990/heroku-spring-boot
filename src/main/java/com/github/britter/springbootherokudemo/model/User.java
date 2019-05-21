@@ -50,6 +50,7 @@ public class User {
 
     public void setUsername(String username) {
         this.user_id = Long.parseLong(username);
+        this.username=username;
     }
 
     public String getPassword() {
