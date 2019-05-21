@@ -23,7 +23,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GreetingController {
 
-    @RequestMapping("/")
+    @RequestMapping(value = { "/", "/login1" })
+    public String staticResource(Model model) {
+        return "login1";
+    }
+    @RequestMapping("/home")
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
         return "home";
