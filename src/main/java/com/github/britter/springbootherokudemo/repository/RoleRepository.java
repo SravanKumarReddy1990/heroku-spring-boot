@@ -13,16 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.britter.springbootherokudemo;
+package com.github.britter.springbootherokudemo.repository;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.github.britter.springbootherokudemo.model.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@SpringBootApplication
-public class Application {
-
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
+public interface RoleRepository extends JpaRepository<Role, Long>{
 }
+
