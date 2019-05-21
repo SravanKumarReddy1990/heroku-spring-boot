@@ -14,9 +14,9 @@
 <body>
  
     <div style="text-align: right;padding:5px;margin:5px 0px;background:#ccc;">
-       <a href="${pageContext.request.contextPath}/login1?lang=en">Login (English)</a>
+       <a href="${pageContext.request.contextPath}/login1?language=en">Login (English)</a>
        &nbsp;|&nbsp;
-       <a href="${pageContext.request.contextPath}/login1?lang=tel">Login (Telugu)</a>
+       <a href="${pageContext.request.contextPath}/login1?language=tel">Login (Telugu)</a>
     </div>
  
     <form method="post" action="">
