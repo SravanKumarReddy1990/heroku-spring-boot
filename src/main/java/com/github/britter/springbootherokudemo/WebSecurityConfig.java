@@ -41,13 +41,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().antMatchers("/", "/home").permitAll().antMatchers("/admin").hasRole("ADMIN")
+    http.authorizeRequests().antMatchers("/", "/home").permitAll().antMatchers(HttpMethod.GET, "/rest/home").hasRole("ADMIN").antMatchers("/admin").hasRole("ADMIN")
         .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
         .permitAll();
 	http.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/rest/home/").hasRole("USER");
+                .antMatchers(HttpMethod.GET, "/rest/home").hasRole("ADMIN");
     http.exceptionHandling().accessDeniedPage("/403");
   }
 }
