@@ -24,8 +24,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.http.HttpMethod;
-import com.allanditzel.springframework.security.web.csrf.CsrfTokenResponseHeaderBindingFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 @EnableAutoConfiguration
@@ -41,19 +42,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .usersByUsernameQuery("select username,password, enabled from users where username=?")
         .authoritiesByUsernameQuery("select username, role from user_roles where username=?");
   }
- 
+ private static final String[] CSRF_IGNORE = {"/login/**"};
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     //http.authorizeRequests().antMatchers("/", "/home").permitAll().antMatchers("/admin").hasRole("ADMIN")
     //    .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
     //    .permitAll();
     //http.exceptionHandling().accessDeniedPage("/403");
- http.authorizeRequests().antMatchers("/**").authenticated();
-    http.exceptionHandling();
-    http.formLogin();
-    http.formLogin();
-    http.logout().logoutSuccessUrl("/");
-    // CSRF tokens handling
-    http.addFilterAfter(new CsrfTokenResponseHeaderBindingFilter(), CsrfFilter.class);
+    http
+				.httpBasic()
+				.and()
+				.csrf() // csrf config starts here
+				.ignoringAntMatchers(CSRF_IGNORE) // URI where CSRF check will not be applied
+				.csrfTokenRepository(csrfTokenRepository()) // defines a repository where tokens are stored
+				.and()
+				.addFilterAfter(new CustomCsrfFilter(), CsrfFilter.class);
+  }
+  private CsrfTokenRepository csrfTokenRepository() {
+		HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+		repository.setHeaderName(CustomCsrfFilter.CSRF_COOKIE_NAME);
+		return repository;
   }
 }
