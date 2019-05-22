@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.britter.springbootherokudemo.config;
+package com.github.britter.springbootherokudemo;
 
 import java.util.Locale;
 import org.springframework.context.MessageSource;
