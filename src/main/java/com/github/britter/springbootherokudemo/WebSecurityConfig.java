@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/rest/home/").hasRole("USER")
                 .and()
-                .csrf().disable();
+                .formLogin().disable();
     http.exceptionHandling().accessDeniedPage("/403");
   }
 }
