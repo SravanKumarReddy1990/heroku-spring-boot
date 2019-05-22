@@ -23,10 +23,10 @@ var gridlayer=new ol.layer.Vector({
 
 var map = new ol.Map({
     target: 'map',
-    layers: [parliamentlayer,gridlayer,
+    layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM()
-    })
+    }),parliamentlayer,gridlayer
     ],
     view: new ol.View({
         center: ol.proj.transform([78.38745117187499,11.86466302072273], 'EPSG:4326', 'EPSG:3857'),
