@@ -24,6 +24,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.http.HttpMethod;
+import com.allanditzel.springframework.security.web.csrf.CsrfTokenResponseHeaderBindingFilter;
+import org.springframework.security.web.csrf.CsrfFilter;
 
 @Configuration
 @EnableAutoConfiguration
@@ -32,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   @Autowired
   DataSource dataSource;
  
+
   @Autowired
   public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
     auth.jdbcAuthentication().dataSource(dataSource)
@@ -41,13 +44,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().antMatchers("/", "/home").permitAll().antMatchers("/admin").hasRole("ADMIN")
-        .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
-        .permitAll();
-	http.httpBasic()
-                .and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/rest/home/").hasRole("USER");
-    http.exceptionHandling().accessDeniedPage("/403");
+    //http.authorizeRequests().antMatchers("/", "/home").permitAll().antMatchers("/admin").hasRole("ADMIN")
+    //    .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
+    //    .permitAll();
+    //http.exceptionHandling().accessDeniedPage("/403");
+ http.authorizeRequests().antMatchers("/**").authenticated();
+    http.exceptionHandling();
+    http.formLogin();
+    http.formLogin();
+    http.logout().logoutSuccessUrl("/");
+    // CSRF tokens handling
+    http.addFilterAfter(new CsrfTokenResponseHeaderBindingFilter(), CsrfFilter.class);
   }
 }
