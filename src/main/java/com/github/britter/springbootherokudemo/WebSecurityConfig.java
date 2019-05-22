@@ -47,10 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	http.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/rest/home/").hasRole("USER")
-                .and()
-                .csrf().disable()
-                .formLogin().disable();
+                .antMatchers(HttpMethod.GET, "/rest/home/").hasRole("USER");
     http.exceptionHandling().accessDeniedPage("/403");
   }
 }
