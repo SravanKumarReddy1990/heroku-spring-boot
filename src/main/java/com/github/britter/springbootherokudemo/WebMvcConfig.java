@@ -32,7 +32,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Bean(name = "messageResourceSB")
     public MessageSource messageSource() {
     	ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("classpath:i18n/messages");
+        messageSource.setBasenames("i18n/messages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
