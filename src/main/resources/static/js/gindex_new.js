@@ -1,20 +1,18 @@
 
-
-var parliamentlayer=new ol.layer.Vector({
-      title: 'PN ASSEMBLY Layer',
+var assemblylayer=new ol.layer.Vector({
+      title: 'TN GRIDS Layer',
       source: new ol.source.Vector({
          format: new ol.format.GeoJSON(),
-         url: 'tenanganaassembly.geojson'
+         url: 'tenaganagrids.geojson'
       })
   });
-
 
 var map = new ol.Map({
     target: 'map',
     layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM()
-    }),parliamentlayer
+    }),assemblylayer
     ],
     view: new ol.View({
         center: ol.proj.transform([78.38745117187499,11.86466302072273], 'EPSG:4326', 'EPSG:3857'),
