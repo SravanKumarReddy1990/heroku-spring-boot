@@ -41,6 +41,10 @@ public class WebController {
     public String login(){
         return "login";
     }
+    @RequestMapping(value="/alayers")
+    public String alayers(){
+        return "alayers";
+    }
     @RequestMapping(value="/loginmultiple")
     public String loginmultiple(){
         return "loginmultiple";
