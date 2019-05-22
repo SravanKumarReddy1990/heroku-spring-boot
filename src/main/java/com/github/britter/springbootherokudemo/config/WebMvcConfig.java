@@ -29,10 +29,10 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
-    @Bean
+    @Bean(name = "messageResourceSB")
     public MessageSource messageSource() {
     	ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("i18n/messages");
+        messageSource.setBasenames("classpath:i18n/messages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
