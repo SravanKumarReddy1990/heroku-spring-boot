@@ -43,6 +43,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     http.authorizeRequests().antMatchers("/", "/home").permitAll().antMatchers("/admin").hasRole("ADMIN")
         .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
         .permitAll();
+http
+                //HTTP Basic authentication
+                .httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/rest/home/").hasRole("USER")
+                .and()
+                .csrf().disable()
+                .formLogin().disable();
     http.exceptionHandling().accessDeniedPage("/403");
   }
 }
