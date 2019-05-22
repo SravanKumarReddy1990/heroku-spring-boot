@@ -23,7 +23,7 @@ var gridlayer=new ol.layer.Vector({
 
 var map = new ol.Map({
     target: 'map',
-    layers: [assemblylayer,parliamentlayer,gridlayer,
+    layers: [parliamentlayer,gridlayer,
     new ol.layer.Tile({
       source: new ol.source.OSM()
     })
