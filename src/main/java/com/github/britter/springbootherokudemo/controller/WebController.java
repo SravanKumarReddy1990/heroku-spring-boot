@@ -16,6 +16,9 @@
 package com.github.britter.springbootherokudemo.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
  
@@ -48,6 +51,13 @@ public class WebController {
     @RequestMapping(value="/players")
     public String players(){
         return "players";
+    }
+
+    @RequestMapping(value="/chat")
+    public String chat(HttpServletRequest request,Map<String, Object> model){
+        String userid=request.getUserPrincipal().getName();
+        model.put("userid", userid);
+        return "chat";
     }
     @RequestMapping(value="/glayers")
     public String glayers(){
