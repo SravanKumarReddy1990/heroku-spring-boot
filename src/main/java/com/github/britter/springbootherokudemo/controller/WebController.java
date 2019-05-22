@@ -42,7 +42,7 @@ public class WebController {
         return "login";
     }
     @RequestMapping(value="/loginmultiple")
-    public String login(){
+    public String loginmultiple(){
         return "loginmultiple";
     }
    
