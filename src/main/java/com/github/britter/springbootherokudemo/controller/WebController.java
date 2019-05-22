@@ -41,6 +41,10 @@ public class WebController {
     public String login(){
         return "login";
     }
+    @RequestMapping(value="/loginmultiple")
+    public String login(){
+        return "loginmultiple";
+    }
    
     @RequestMapping(value="/403")
     public String Error403(){
