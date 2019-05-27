@@ -21,7 +21,7 @@ import java.util.Map;
 import java.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.github.britter.springbootherokudemo.util.EmailUtil;
+import com.github.britter.springbootherokudemo.email.EmailUtil;
 
 @Controller
 public class WebController {

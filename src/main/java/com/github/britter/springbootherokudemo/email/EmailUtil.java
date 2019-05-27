@@ -1,4 +1,4 @@
-package com.example.demo.util;
+package com.github.britter.springbootherokudemo.email
 
 
 import java.util.Properties;
