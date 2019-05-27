@@ -38,7 +38,7 @@ public class EmailUtil {
             }
         });
 		generateMailMessage = new MimeMessage(getMailSession);
-                message.setFrom(new InternetAddress("b.sravankumar1990@gmail.com"));
+                generateMailMessage.setFrom(new InternetAddress("b.sravankumar1990@gmail.com"));
 		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toMail));
 		//generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("test2@crunchify.com"));
 		generateMailMessage.setSubject(subject);
