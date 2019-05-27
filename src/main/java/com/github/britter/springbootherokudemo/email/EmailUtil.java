@@ -34,7 +34,7 @@ public class EmailUtil {
 		getMailSession = Session.getDefaultInstance(mailServerProperties, new javax.mail.Authenticator() {
                             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("conaderindicadores@gmail.com","Silueta95#");
+                return new PasswordAuthentication("b.sravankumar1990@gmail.com","Sravan19999990");
             }
         });
 		generateMailMessage = new MimeMessage(getMailSession);
@@ -51,7 +51,7 @@ public class EmailUtil {
  
 		// Enter your correct gmail UserID and Password	
 		// if you have 2FA enabled then provide App Specific Password
-		transport.connect("smtp.gmail.com", "b.sravankumar1990@gmail.com", "Sravan19999990");
+		//transport.connect("smtp.gmail.com", "b.sravankumar1990@gmail.com", "Sravan19999990");
 		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 		transport.close();
 	}
