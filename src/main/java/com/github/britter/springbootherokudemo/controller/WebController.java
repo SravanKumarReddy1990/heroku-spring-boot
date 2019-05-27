@@ -18,7 +18,7 @@ package com.github.britter.springbootherokudemo.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
-
+import java.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.github.britter.springbootherokudemo.util.EmailUtil;
@@ -65,8 +65,10 @@ public class WebController {
         String name=request.getParamenter("name");
         String email=request.getParamenter("email");
         String message=request.getParamenter("message");
+try{
         EmailUtil.generateAndSendEmail(email,"From :"+name,message);
         //model.put("userid", userid);
+}catch(Exception e){}
         return "chat";
     }
     @RequestMapping(value="/glayers")
