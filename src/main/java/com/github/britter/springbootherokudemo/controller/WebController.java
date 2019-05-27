@@ -67,7 +67,7 @@ public class WebController {
         String email=request.getParameter("email");
         String message=request.getParameter("message");
 try{
-      //  EmailUtil.generateAndSendEmail(email,"From :"+name,message);
+        EmailUtil.generateAndSendEmail(email,"From :"+name,message);
         //model.put("userid", userid);
 }catch(Exception e){
 System.out.println(e+"");
