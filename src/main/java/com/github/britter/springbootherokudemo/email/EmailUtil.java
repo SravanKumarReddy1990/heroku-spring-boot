@@ -9,6 +9,8 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
 
 public class EmailUtil {
 	static Properties mailServerProperties;
@@ -29,7 +31,12 @@ public class EmailUtil {
  
 		// Step2
 		System.out.println("\n\n 2nd ===> get Mail Session..");
-		getMailSession = Session.getDefaultInstance(mailServerProperties, null);
+		getMailSession = Session.getDefaultInstance(mailServerProperties, new javax.mail.Authenticator() {
+                            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("conaderindicadores@gmail.com","Silueta95#");
+            }
+        });
 		generateMailMessage = new MimeMessage(getMailSession);
 		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toMail));
 		//generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("test2@crunchify.com"));
@@ -42,7 +49,7 @@ public class EmailUtil {
 		System.out.println("\n\n 3rd ===> Get Session and Send mail");
 		Transport transport = getMailSession.getTransport("smtp");
  
-		// Enter your correct gmail UserID and Password
+		// Enter your correct gmail UserID and Password	
 		// if you have 2FA enabled then provide App Specific Password
 		transport.connect("smtp.gmail.com", "b.sravankumar1990@gmail.com", "Sravan19999990");
 		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
