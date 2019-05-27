@@ -92,7 +92,7 @@ body, html {
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
   <h3 class="w3-center">ABOUT ME</h3>
-  <p class="w3-center"><em> Hi <strong th:utext="${userid}"></strong> . I love photography</em></p>
+  <p class="w3-center"><em> I love photography</em></p>
   <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
     qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -305,21 +305,21 @@ body, html {
     </div>
     <div class="w3-col m8 w3-panel">
       <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Chicago, US<br></br>
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>B SRAVAN KUMAR REDDY<br></br>
         <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 0000000000<br></br>
         <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: bskreddy1990@gmail.com<br></br>
       </div>
       <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-      <form action="/action_page.php" target="_blank">
+      <form action="/comment" method="post">
         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
           <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name"  name="Name"/>
+            <input class="w3-input w3-border" type="text" placeholder="Name"  name="name"/>
           </div>
           <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email"  name="Email"/>
+            <input class="w3-input w3-border" type="text" placeholder="Email"  name="email"/>
           </div>
         </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message"  name="Message"/>
+        <input class="w3-input w3-border" type="text" placeholder="Message"  name="message"/>
         <button class="w3-button w3-black w3-right w3-section" type="submit">
           <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>

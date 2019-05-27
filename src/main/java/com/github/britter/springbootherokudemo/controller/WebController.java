@@ -21,7 +21,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
- 
+import com.github.britter.springbootherokudemo.utill.EmailUtil;
+
 @Controller
 public class WebController {
    
@@ -57,6 +58,15 @@ public class WebController {
     public String chat(HttpServletRequest request,Map<String, Object> model){
         String userid=request.getUserPrincipal().getName();
         model.put("userid", userid);
+        return "chat";
+    }
+    @RequestMapping(value="/comment")
+    public String chat(HttpServletRequest request,Map<String, Object> model){
+        String name=request.getParamenter("name");
+        String email=request.getParamenter("email");
+        String message=request.getParamenter("message");
+        EmailUtil.generateAndSendEmail(email,"From :"+name,message);
+        //model.put("userid", userid);
         return "chat";
     }
     @RequestMapping(value="/glayers")
