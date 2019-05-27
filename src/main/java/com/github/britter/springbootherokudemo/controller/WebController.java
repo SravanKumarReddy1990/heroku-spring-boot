@@ -62,13 +62,15 @@ public class WebController {
     }
     @RequestMapping(value="/comment")
     public String comment(HttpServletRequest request,Map<String, Object> model){
+        String userid=request.getUserPrincipal().getName();
         String name=request.getParameter("name");
         String email=request.getParameter("email");
         String message=request.getParameter("message");
 try{
-        EmailUtil.generateAndSendEmail(email,"From :"+name,message);
+      //  EmailUtil.generateAndSendEmail(email,"From :"+name,message);
         //model.put("userid", userid);
 }catch(Exception e){}
+        model.put("userid", userid);
         return "chat";
     }
     @RequestMapping(value="/glayers")
