@@ -62,9 +62,9 @@ public class WebController {
     }
     @RequestMapping(value="/comment")
     public String chat(HttpServletRequest request,Map<String, Object> model){
-        String name=request.getParamenter("name");
-        String email=request.getParamenter("email");
-        String message=request.getParamenter("message");
+        String name=request.getParameter("name");
+        String email=request.getParameter("email");
+        String message=request.getParameter("message");
 try{
         EmailUtil.generateAndSendEmail(email,"From :"+name,message);
         //model.put("userid", userid);
