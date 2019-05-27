@@ -61,7 +61,7 @@ public class WebController {
         return "chat";
     }
     @RequestMapping(value="/comment")
-    public String chat(HttpServletRequest request,Map<String, Object> model){
+    public String comment(HttpServletRequest request,Map<String, Object> model){
         String name=request.getParameter("name");
         String email=request.getParameter("email");
         String message=request.getParameter("message");
