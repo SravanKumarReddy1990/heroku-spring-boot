@@ -69,7 +69,9 @@ public class WebController {
 try{
       //  EmailUtil.generateAndSendEmail(email,"From :"+name,message);
         //model.put("userid", userid);
-}catch(Exception e){}
+}catch(Exception e){
+System.out.println(e+"");
+}
         model.put("userid", userid);
         return "chat";
     }
