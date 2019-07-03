@@ -60,6 +60,13 @@ public class WebController {
         model.put("userid", userid);
         return "chat";
     }
+
+    @RequestMapping(value="/profile")
+    public String chat(HttpServletRequest request,Map<String, Object> model){
+        String userid=request.getUserPrincipal().getName();
+        model.put("userid", userid);
+        return "profile";
+    }
     @RequestMapping(value="/comment")
     public String comment(HttpServletRequest request,Map<String, Object> model){
         String userid=request.getUserPrincipal().getName();
