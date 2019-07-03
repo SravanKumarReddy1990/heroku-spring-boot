@@ -25,8 +25,8 @@
                     <strong>&laquo; Previous Demo: </strong>Responsive Content Navigator
                 </a>
                 <span class="right">
-                    <a href=" http://tympanus.net/codrops/2012/03/27/login-and-registration-form-with-html5-and-css3/">
-                        <strong>Back to the Codrops Article</strong>
+                    <a href="#">
+                        <strong>Home</strong>
                     </a>
                 </span>
                 <div class="clr"></div>
@@ -46,7 +46,19 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on"> 
+  <div class="row col-sm-6" 
+        style="border: 1px ridge #003312; padding:20px; float: none; margin: 0 auto;">
+ <h5 class="text-center" style="font-size: 25px">Sign In</h5>
+    <div th:if="${param.error}">
+      <p style="color: red">UserName or PassWord is wrong. Please
+        check again!</p>
+  
+    </div>
+    <div th:if="${param.logout}">
+      <h1 style="color: blue">Logged out.</h1>
+    </div>
+
+                            <form th:action="@{/login}" method="post">
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your email or username </label>
@@ -67,7 +79,7 @@
 									Not a member yet ?
 									<a href="#toregister" class="to_register">Join us</a>
 								</p>
-                            </form>
+                            </form> </div>
                         </div>
 
                         <div id="register" class="animate form">
