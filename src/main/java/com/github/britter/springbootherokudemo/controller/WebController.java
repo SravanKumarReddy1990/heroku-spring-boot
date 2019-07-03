@@ -62,7 +62,7 @@ public class WebController {
     }
 
     @RequestMapping(value="/profile")
-    public String chat(HttpServletRequest request,Map<String, Object> model){
+    public String profile(HttpServletRequest request,Map<String, Object> model){
         String userid=request.getUserPrincipal().getName();
         model.put("userid", userid);
         return "profile";
