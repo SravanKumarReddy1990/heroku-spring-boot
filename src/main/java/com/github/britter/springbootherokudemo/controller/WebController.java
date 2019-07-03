@@ -35,7 +35,10 @@ public class WebController {
     public String user(){
         return "user";
     }
-  
+   @RequestMapping(value="/registration")
+    public String registration(){
+        return "registration";
+    }
     @RequestMapping(value="/admin")
     public String admin(){
         return "admin";
