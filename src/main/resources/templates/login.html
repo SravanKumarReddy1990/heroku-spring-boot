@@ -53,8 +53,24 @@
     <div th:if="${param.logout}">
       <h1 style="color: blue">Logged out.</h1>
     </div>
+<script>
+function validlogin(){
+var username=document.getElementById("username").value;
+if(!username){
+alert("Please Enter Valid Username");
+return false;
+}
+var password=document.getElementById("password").value;
+if(!password || password.length>6){
+alert("Please Enter Valid Username min 6 characters");
+return false;
+}
+return true;
+}
+</script>
 
-                            <form th:action="@{/login}" method="post">
+                            <form th:action="@{/login}" method="post" onsubmit="return validlogin()">
+ 
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your email or username </label>
@@ -74,9 +90,33 @@
 								</p>
                             </form> </div>
                         </div>
-
+<script>
+function validregister(){
+var username=document.getElementById("usernamesignup").value;
+if(!username){
+alert("Please Enter Valid Username");
+return false;
+}
+var emailsignup=document.getElementById("emailsignup").value;
+if(!emailsignup){
+alert("Please Enter Valid Email");
+return false;
+}
+var password=document.getElementById("passwordsignup").value;
+if(!password || password.length>6){
+alert("Please Enter Valid Username min 6 characters");
+return false;
+}
+var passwordconfirm=document.getElementById("passwordsignup_confirm").value;
+if(passwordconfirm !== password){
+alert("Please Enter Valid Username min 6 characters");
+return false;
+}
+return true;
+}
+</script>
                         <div id="register" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on"> 
+                            <form  action="mysuperscript.php" autocomplete="on" onsubmit="return validregister()">  
                                 <h1> Sign up </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
