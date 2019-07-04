@@ -29,6 +29,9 @@ import java.sql.Blob;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +45,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.jdbc.core.support.SqlLobValue;
 import org.springframework.jdbc.support.lob.DefaultLobHandler;
+import org.springframework.jdbc.support.lob.LobHandler;
 
 import java.io.ByteArrayInputStream;
 import java.sql.Types;
@@ -79,18 +83,14 @@ public class WebController {
 	//System.out.println(form.getEmailsignup());
        // System.out.println(form.getAlbums());
 try {
-		String sql = "INSERT INTO user_reg (username,email,yourphoto) values (:username,:email,:yourphoto)";
+		String sql = "INSERT INTO user_reg(username,email,yourphoto) values (?,?,?)";
 String loginsql = "INSERT INTO users (username,password,enabled) values (?,?,TRUE)";
 String loginrolesql = "INSERT INTO user_roles (username,role) values (?,'ROLE_USER')";
-		int random = (int)(Math.random() * 50 + 1);
-		  MapSqlParameterSource in = new MapSqlParameterSource();
-      in.addValue("username", form.getUsernamesignup());
-      in.addValue("email", form.getEmailsignup());
-      in.addValue("yourphoto",  new SqlLobValue(new ByteArrayInputStream(form.getYourfile().getBytes()), 
-         form.getYourfile().getBytes().length, new DefaultLobHandler()), Types.BLOB);
-
- jdbcTemplate.update(sql, in);
-		//jdbcTemplate.update(sql, form.getUsernamesignup(),form.getEmailsignup(),form.getYourfile().getBytes());
+		LobHandler lobHandler = new DefaultLobHandler(); 
+InputStream inputStream =  new BufferedInputStream(form.getYourfile().getInputStream());
+// jdbcTemplate.update(sql, in);
+		jdbcTemplate.update(sql, new Object[] { form.getUsernamesignup(),form.getEmailsignup(),
+ new SqlLobValue(inputStream, (int)form.getYourfile().length(), lobHandler)});
 		jdbcTemplate.update(loginsql, form.getUsernamesignup(),form.getPasswordsignup());
 		jdbcTemplate.update(loginrolesql, form.getUsernamesignup());
 		
