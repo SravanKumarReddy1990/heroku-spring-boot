@@ -112,6 +112,12 @@ if(passwordconfirm !== password){
 alert("Password Not Match");
 return false;
 }
+var yourfile=document.getElementById("yourfile").value;
+if(!yourfile){
+alert("Please select Photo");
+
+return false;
+}
 return true;
 }
 </script>
