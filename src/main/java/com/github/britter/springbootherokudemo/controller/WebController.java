@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.Types;
 import java.io.FileNotFoundException;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -90,7 +91,7 @@ String loginrolesql = "INSERT INTO user_roles (username,role) values (?,'ROLE_US
 InputStream inputStream =  new BufferedInputStream(form.getYourfile().getInputStream());
 // jdbcTemplate.update(sql, in);
 		jdbcTemplate.update(sql, new Object[] { form.getUsernamesignup(),form.getEmailsignup(),
- new SqlLobValue(inputStream, (int)form.getYourfile().getSize(), lobHandler)});
+ new SqlLobValue(inputStream, (int)form.getYourfile().getSize(), lobHandler)},new int[] {Types.VARCHAR,Types.VARCHAR, Types.BLOB}));
 		jdbcTemplate.update(loginsql, form.getUsernamesignup(),form.getPasswordsignup());
 		jdbcTemplate.update(loginrolesql, form.getUsernamesignup());
 		
