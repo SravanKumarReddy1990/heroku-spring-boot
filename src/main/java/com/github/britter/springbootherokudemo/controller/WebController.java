@@ -27,6 +27,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -45,7 +46,7 @@ public class WebController {
     public String user(){
         return "user";
     }
-   @RequestMapping(value="/registration",method = RequestMethod.POST)
+   @PostMapping(value="/registration")
     public String registration(@ModelAttribute RegistrationForm form,Map<String, Object> model,HttpSession session){
 	System.out.println(form.getEmailsignup());
        // System.out.println(form.getAlbums());
