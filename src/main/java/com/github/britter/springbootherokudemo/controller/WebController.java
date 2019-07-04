@@ -36,6 +36,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+import org.springframework.jdbc.core.support.SqlLobValue;
+import org.springframework.jdbc.support.lob.DefaultLobHandler;
+
+import java.io.ByteArrayInputStream;
+import java.sql.Types;
 
 @Controller
 public class WebController {
@@ -70,12 +79,18 @@ public class WebController {
 	//System.out.println(form.getEmailsignup());
        // System.out.println(form.getAlbums());
 try {
-		String sql = "INSERT INTO user_reg (username,email,yourphoto) values (?,?,?)";
+		String sql = "INSERT INTO user_reg (username,email,yourphoto) values (:username,:email,:yourphoto)";
 String loginsql = "INSERT INTO users (username,password,enabled) values (?,?,TRUE)";
 String loginrolesql = "INSERT INTO user_roles (username,role) values (?,'ROLE_USER')";
 		int random = (int)(Math.random() * 50 + 1);
-		
-		jdbcTemplate.update(sql, form.getUsernamesignup(),form.getEmailsignup(),form.getYourfile().getBytes());
+		  MapSqlParameterSource in = new MapSqlParameterSource();
+      in.addValue("username", form.getUsernamesignup());
+      in.addValue("email", form.getEmailsignup());
+      in.addValue("yourphoto",  new SqlLobValue(new ByteArrayInputStream(form.getYourfile().getBytes()), 
+         form.getYourfile().getBytes().length, new DefaultLobHandler()), Types.BLOB);
+
+ jdbcTemplate.update(SQL, in);
+		//jdbcTemplate.update(sql, form.getUsernamesignup(),form.getEmailsignup(),form.getYourfile().getBytes());
 		jdbcTemplate.update(loginsql, form.getUsernamesignup(),form.getPasswordsignup());
 		jdbcTemplate.update(loginrolesql, form.getUsernamesignup());
 		
