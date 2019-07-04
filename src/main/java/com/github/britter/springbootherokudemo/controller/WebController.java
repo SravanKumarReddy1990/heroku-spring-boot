@@ -90,8 +90,11 @@ String loginrolesql = "INSERT INTO user_roles (username,role) values (?,'ROLE_US
 		LobHandler lobHandler = new DefaultLobHandler(); 
 InputStream inputStream =  new BufferedInputStream(form.getYourfile().getInputStream());
 // jdbcTemplate.update(sql, in);
-		jdbcTemplate.update(sql, new Object[] { form.getUsernamesignup(),form.getEmailsignup(),
- new SqlLobValue(inputStream, (int)form.getYourfile().getSize(), lobHandler)},new int[] {Types.VARCHAR,Types.VARCHAR, Types.BLOB}));
+		jdbcTemplate.update(sql, new Object[] {
+ form.getUsernamesignup()
+,form.getEmailsignup(),
+ new SqlLobValue(inputStream, (int)form.getYourfile().getSize(), lobHandler)}
+,new int[] {Types.VARCHAR,Types.VARCHAR, Types.BLOB});
 		jdbcTemplate.update(loginsql, form.getUsernamesignup(),form.getPasswordsignup());
 		jdbcTemplate.update(loginrolesql, form.getUsernamesignup());
 		
