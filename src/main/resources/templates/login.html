@@ -61,8 +61,8 @@ alert("Please Enter Valid Username");
 return false;
 }
 var password=document.getElementById("password").value;
-if(!password || password.length<6){
-alert("Please Enter Valid Username min 6 characters");
+if(!password || !password.length>){
+alert("Please Enter Valid Password min 6 characters");
 return false;
 }
 return true;
@@ -103,8 +103,8 @@ alert("Please Enter Valid Email");
 return false;
 }
 var password=document.getElementById("passwordsignup").value;
-if(!password || password.length<6){
-alert("Please Enter Valid Password min 6 characters");
+if(!password || !password.length>6){
+alert("Please Enter Valid Password minimum 6 characters");
 return false;
 }
 var passwordconfirm=document.getElementById("passwordsignup_confirm").value;
