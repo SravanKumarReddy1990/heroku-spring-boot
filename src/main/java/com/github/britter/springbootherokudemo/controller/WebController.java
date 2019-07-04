@@ -22,6 +22,7 @@ import java.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.github.britter.springbootherokudemo.email.EmailUtil;
+import com.github.britter.springbootherokudemo.controller.RegistrationForm;
 
 @Controller
 public class WebController {
@@ -36,8 +37,10 @@ public class WebController {
         return "user";
     }
    @RequestMapping(value="/registration")
-    public String registration(){
-        return "registration";
+    public String registration(@ModelAttribute RegistrationForm form,Map<String, Object> model,HttpSession session){
+	System.out.println(form.getEmailsignup())
+        System.out.println(form.getAlbums())
+        return "login";
     }
     @RequestMapping(value="/admin")
     public String admin(){
