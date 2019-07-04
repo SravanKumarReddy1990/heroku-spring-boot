@@ -53,7 +53,7 @@ public class WebController {
         return "user";
     }
 	@RequestMapping(value = "/getStudentPhoto/{id}")
-	public void getStudentPhoto(HttpServletResponse response, @PathVariable("id") int id) throws Exception {
+	public void getStudentPhoto(HttpServletResponse response, @PathVariable("id") String id) throws Exception {
 		response.setContentType("image/jpeg");
 
 		String query = "select yourphoto from user_reg where username=?";
