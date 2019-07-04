@@ -26,6 +26,7 @@ import com.github.britter.springbootherokudemo.model.RegistrationForm;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class WebController {
@@ -39,7 +40,7 @@ public class WebController {
     public String user(){
         return "user";
     }
-   @RequestMapping(value="/registration")
+   @RequestMapping(value="/registration",method = RequestMethod.POST)
     public String registration(@ModelAttribute RegistrationForm form,Map<String, Object> model,HttpSession session){
 	System.out.println(form.getEmailsignup());
         System.out.println(form.getAlbums());
