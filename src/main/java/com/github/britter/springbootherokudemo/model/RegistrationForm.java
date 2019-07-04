@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.github.britter.springbootherokudemo.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
