@@ -38,8 +38,8 @@ public class WebController {
     }
    @RequestMapping(value="/registration")
     public String registration(@ModelAttribute RegistrationForm form,Map<String, Object> model,HttpSession session){
-	System.out.println(form.getEmailsignup())
-        System.out.println(form.getAlbums())
+	System.out.println(form.getEmailsignup());
+        System.out.println(form.getAlbums());
         return "login";
     }
     @RequestMapping(value="/admin")
