@@ -27,10 +27,15 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @Controller
 public class WebController {
-   
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
     @RequestMapping(value="/")
     public String home(){
         return "home";
@@ -44,6 +49,22 @@ public class WebController {
     public String registration(@ModelAttribute RegistrationForm form,Map<String, Object> model,HttpSession session){
 	System.out.println(form.getEmailsignup());
         System.out.println(form.getAlbums());
+try {
+		String sql = "INSERT INTO user_reg (username,email,yourphoto) values (?,?,?)";
+String loginsql = "INSERT INTO users (username,password,enabled) values (?,?,TRUE)";
+String loginrolesql = "INSERT INTO user_roles (username,role) values (?,'ROLE_USER')";
+		int random = (int)(Math.random() * 50 + 1);
+		
+		jdbcTemplate.update(sql, form.getUsernamesignup(),form.getEmailsignup(),form.getYourphoto());
+		jdbcTemplate.update(loginsql, form.getUsernamesignup(),form.getPasswordsignup());
+		jdbcTemplate.update(loginrolesql, form.getUsernamesignup());
+		
+		//return "Inserted Successfull";
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			//return "Registeration Failed";
+		}
         return "login";
     }
     @RequestMapping(value="/admin")

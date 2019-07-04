@@ -122,7 +122,7 @@ return true;
 }
 </script>
                         <div id="register" class="animate form">
-                            <form  action="@{/registration}" autocomplete="on" method="post" onsubmit="return validregister()">  
+                            <form  action="@{/registration}" autocomplete="on" enctype="multipart/form-data" method="post" onsubmit="return validregister()">  
                                 <h1> Sign up </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
