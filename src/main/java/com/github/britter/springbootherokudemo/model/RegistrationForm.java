@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class RegistrationForm {
 private String usernamesignup;
 private String emailsignup;
-private MultipartFile yourphoto;
+private MultipartFile yourfile;
 private String passwordsignup;
 public String getUsernamesignup() {
 	return usernamesignup;
@@ -25,11 +25,11 @@ public String getPasswordsignup() {
 public void setPasswordsignup(String passwordsignup) {
 	this.passwordsignup = passwordsignup;
 }
-public MultipartFile getYourphoto() {
-return yourphoto;
+public MultipartFile getYourfile() {
+return yourfile;
 }
-public void setYourphoto(MultipartFile yourphoto) {
-this.yourphoto = yourphoto;
+public void setYourfile(MultipartFile yourfile) {
+this.yourfile = yourfile;
 }
  
 }
