@@ -27,6 +27,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -46,6 +47,19 @@ public class WebController {
     public String user(){
         return "user";
     }
+	@RequestMapping(value = "/getStudentPhoto/{id}")
+	public void getStudentPhoto(HttpServletResponse response, @PathVariable("id") int id) throws Exception {
+		response.setContentType("image/jpeg");
+
+		String query = "select yourphoto from user_reg where username=?";
+
+		Blob ph = jdbcTemp.queryForObject(query, new Object[] { id }, Blob.class);
+
+
+		byte[] bytes = ph.getBytes(1, (int) ph.length());
+		InputStream inputStream = new ByteArrayInputStream(bytes);
+		IOUtils.copy(inputStream, response.getOutputStream());
+	}
    @PostMapping(value="/registration")
     public String registration(@ModelAttribute RegistrationForm form,Map<String, Object> model,HttpSession session){
 	System.out.println(form.getEmailsignup());
