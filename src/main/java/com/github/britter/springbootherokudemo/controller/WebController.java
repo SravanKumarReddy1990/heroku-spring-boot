@@ -67,7 +67,7 @@ public class WebController {
 	}
    @PostMapping(value="/registration")
     public String registration(@ModelAttribute RegistrationForm form,Map<String, Object> model,HttpSession session){
-	System.out.println(form.getEmailsignup());
+	//System.out.println(form.getEmailsignup());
        // System.out.println(form.getAlbums());
 try {
 		String sql = "INSERT INTO user_reg (username,email,yourphoto) values (?,?,?)";
