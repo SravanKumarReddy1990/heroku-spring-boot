@@ -89,7 +89,7 @@ String loginrolesql = "INSERT INTO user_roles (username,role) values (?,'ROLE_US
       in.addValue("yourphoto",  new SqlLobValue(new ByteArrayInputStream(form.getYourfile().getBytes()), 
          form.getYourfile().getBytes().length, new DefaultLobHandler()), Types.BLOB);
 
- jdbcTemplate.update(SQL, in);
+ jdbcTemplate.update(sql, in);
 		//jdbcTemplate.update(sql, form.getUsernamesignup(),form.getEmailsignup(),form.getYourfile().getBytes());
 		jdbcTemplate.update(loginsql, form.getUsernamesignup(),form.getPasswordsignup());
 		jdbcTemplate.update(loginrolesql, form.getUsernamesignup());
