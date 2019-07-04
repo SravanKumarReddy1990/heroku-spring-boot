@@ -25,6 +25,10 @@ import com.github.britter.springbootherokudemo.email.EmailUtil;
 import com.github.britter.springbootherokudemo.model.RegistrationForm;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
+import java.sql.Blob;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+import java.io.IOException;
+import java.io.InputStream;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,7 +57,7 @@ public class WebController {
 
 		String query = "select yourphoto from user_reg where username=?";
 
-		Blob ph = jdbcTemp.queryForObject(query, new Object[] { id }, Blob.class);
+		Blob ph = jdbcTemplate.queryForObject(query, new Object[] { id }, Blob.class);
 
 
 		byte[] bytes = ph.getBytes(1, (int) ph.length());
