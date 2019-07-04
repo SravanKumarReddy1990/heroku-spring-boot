@@ -58,7 +58,7 @@ public class WebController {
 
 		String query = "select yourphoto from user_reg where username=?";
 
-		Blob ph = jdbcTemplate.queryForObject(query, new Object[] { id }, Blob.class);
+		Blob ph = jdbcTemplate.queryForObject(query, new String[] { id }, Blob.class);
 
 
 		byte[] bytes = ph.getBytes(1, (int) ph.length());
