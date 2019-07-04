@@ -56,7 +56,7 @@ String loginsql = "INSERT INTO users (username,password,enabled) values (?,?,TRU
 String loginrolesql = "INSERT INTO user_roles (username,role) values (?,'ROLE_USER')";
 		int random = (int)(Math.random() * 50 + 1);
 		
-		jdbcTemplate.update(sql, form.getUsernamesignup(),form.getEmailsignup(),form.getYourphoto().getBytes());
+		jdbcTemplate.update(sql, form.getUsernamesignup(),form.getEmailsignup(),form.getYourfile().getBytes());
 		jdbcTemplate.update(loginsql, form.getUsernamesignup(),form.getPasswordsignup());
 		jdbcTemplate.update(loginrolesql, form.getUsernamesignup());
 		
