@@ -62,7 +62,7 @@ public class WebController {
         return "home";
     }
    @RequestMapping(value="/index")
-    public String user(){
+    public String userindex(){
         return "index";
     }
     @RequestMapping(value="/user")
