@@ -1,154 +1,444 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head>
-        <meta charset="UTF-8" ></meta>
-        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
-        <title>Login and Registration Form with HTML5 and CSS3</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-        <meta name="description" content="Login and Registration Form with HTML5 and CSS3" ></meta>
-        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" ></meta>
-        <meta name="author" content="Codrops" ></meta>
-        <link rel="shortcut icon" href="../favicon.ico"></link> 
-        <link rel="stylesheet" type="text/css" href="css/demo.css" ></link>
-        <link rel="stylesheet" type="text/css" href="css/style.css" ></link>
-		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" ></link>
-    </head>
-    <body>
-        <div class="container">
-            <!-- Codrops top bar -->
-            <div class="codrops-top">
-                <a href="">
-                    <strong>&laquo; Previous Demo: </strong>Responsive Content Navigator
-                </a>
-                <span class="right">
-                    <a href="#">
-                        <strong>Home</strong>
-                    </a>
-                </span>
-                <div class="clr"></div>
-            </div><!--/ Codrops top bar -->
-            <header>
-                <h1>Login and Registration Form <span>with HTML5 and CSS3</span></h1>
-				<nav class="codrops-demos">
-					<span>Click <strong>"Join us"</strong> to see the form switch</span>
-					<a href="index.html" class="current-demo">Demo 1</a>
-					<a href="index2.html">Demo 2</a>
-					<a href="index3.html">Demo 3</a>
-				</nav>
-            </header>
-            <section>				
-                <div id="container_demo" >
-                    <a class="hiddenanchor" id="toregister"></a>
-                    <a class="hiddenanchor" id="tologin"></a>
-                    <div id="wrapper">
-                        <div id="login" class="animate form">
-  <div class="row col-sm-6" >
-    <div th:if="${param.error}">
-      <p style="color: red">UserName or PassWord is wrong. Please
-        check again!</p>
-  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>BS Messenger</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/gstyle.css" type="text/css" media="all" />
+<!--[if IE 6]><link rel="stylesheet" href="css/ie6-style.css" type="text/css" media="all" /><![endif]-->
+<script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script src="js/fns.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Page -->
+<div id="page" class="shell">
+  <!-- Header -->
+  <div id="header">
+    <!-- Top Navigation -->
+    <div id="top-nav">
+      <ul>
+        <li class="home"><a href="#">home</a></li>
+        <li><a href="#">pc</a></li>
+        <li><a href="#">xbox</a></li>
+        <li><a href="#">360</a></li>
+        <li><a href="#">wii</a></li>
+        <li><a href="#">ps3</a></li>
+        <li><a href="#">ps2</a></li>
+        <li><a href="#">psp</a></li>
+        <li class="last"><a href="#">ds</a></li>
+      </ul>
     </div>
-    <div th:if="${param.logout}">
-      <h1 style="color: blue">Logged out.</h1>
+    <!-- / Top Navigation -->
+    <div class="cl">&nbsp;</div>
+    <!-- Logo -->
+    <div id="logo">
+      <h1><a href="#">BS <span>Messenger</span></a></h1>
+      <p class="description">your Messenger zone</p>
     </div>
-<script>
-function validlogin(){
-var username=document.getElementById("username").value;
-if(!username){
-alert("Please Enter Valid Username");
-return false;
-}
-var password=document.getElementById("password").value;
-if(!password || password.length>6){
-alert("Please Enter Valid Username min 6 characters");
-return false;
-}
-return true;
-}
-</script>
-
-                            <form th:action="@{/login}" method="post" onsubmit="return validlogin()">
-                                <h1>Log in</h1> 
-                                <p> 
-                                    <label for="username" class="uname" data-icon="u" > Your email or username </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"></input>
-                                </p>
-                                <p> 
-                                    <label for="password" class="youpasswd" data-icon="p"> Your password </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" ></input> 
-                                </p>
-                                <p class="keeplogin"> 
-									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" ></input> 
-									<label for="loginkeeping">Keep me logged in</label>
-								</p>
-                                <p class="login button"> 
-                                    <input type="submit" value="Login" ></input> 
-								</p>
-                                <p class="change_link">
-									Not a member yet ?
-									<a href="#toregister" class="to_register">Join us</a>
-								</p>
-                            </form> </div>
-                        </div>
-<script>
-function validregister(){
-var username=document.getElementById("usernamesignup").value;
-if(!username){
-alert("Please Enter Valid Username");
-return false;
-}
-var emailsignup=document.getElementById("emailsignup").value;
-if(!emailsignup){
-alert("Please Enter Valid Email");
-return false;
-}
-var password=document.getElementById("passwordsignup").value;
-if(!password || password.length>6){
-alert("Please Enter Valid Username min 6 characters");
-return false;
-}
-var passwordconfirm=document.getElementById("passwordsignup_confirm").value;
-if(passwordconfirm !== password){
-alert("Please Enter Valid Username min 6 characters");
-return false;
-}
-return true;
-}
-</script>
-                        <div id="register" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on" onsubmit="return validregister()"> 
-                                <h1> Sign up </h1> 
-                                <p> 
-                                    <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" ></input>
-                                </p>
-                                <p> 
-                                    <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"></input> 
-                                </p>
-                                <p> 
-                                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"></input>
-                                </p>
-                                <p> 
-                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"></input>
-                                </p>
-                                <p class="signin button"> 
-									<input type="submit" value="Sign up"></input> 
-								</p>
-                                <p class="change_link">  
-									Already a member ?
-									<a href="#tologin" class="to_register"> Go and log in </a>
-								</p>
-                            </form>
-                        </div>
-						
-                    </div>
-                </div>  
-            </section>
+    <!-- / Logo -->
+    <!-- Main Navigation -->
+    <div id="main-nav">
+      <div class="bg-right">
+        <div class="bg-left">
+          <ul>
+            <li><a href="#">community</a></li>
+            <li><a href="#">forum</a></li>
+            <li><a href="#">video</a></li>
+            <li><a href="#">cheats</a></li>
+            <li><a href="#">features</a></li>
+            <li><a href="#">downloads</a></li>
+            <li><a href="#">sports</a></li>
+            <li><a href="#">tech</a></li>
+          </ul>
         </div>
-    </body>
+      </div>
+    </div>
+    <!-- / Main Navigation -->
+    <div class="cl">&nbsp;</div>
+    <!-- Sort Navigation -->
+    <div id="sort-nav">
+      <div class="bg-right">
+        <div class="bg-left">
+          <div class="cl">&nbsp;</div>
+          <ul>
+            <li class="first active first-active"><a href="#">Review</a><span class="sep">&nbsp;</span></li>
+            <li><a href="#">Previews </a><span class="sep">&nbsp;</span></li>
+            <li><a href="#">New Releases</a><span class="sep">&nbsp;</span></li>
+            <li><a href="#">Top Games</a><span class="sep">&nbsp;</span></li>
+            <li><a href="#">All Games</a><span class="sep">&nbsp;</span></li>
+          </ul>
+          <div class="cl">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+    <!-- / Sort Navigation -->
+  </div>
+  <!-- / Header -->
+  <!-- Main -->
+  <div id="main">
+    <div id="main-bot">
+      <div class="cl">&nbsp;</div>
+      <!-- Content -->
+      <div id="content">
+        <div class="block">
+          <div class="block-bot">
+            <div class="block-cnt">
+              <div id="slider">
+                <div class="buttons"> <span class="prev">prev</span> <span class="next">next</span> </div>
+                <div class="holder">
+                  <div class="frame">&nbsp;</div>
+                  <div class="content">
+                    <ul>
+                    <li class="fragment">
+                      <div class="image">
+                      <img src="css/images/img10.jpg" alt="" /> 
+                  </div>
+                  <div class="cnt">
+                    <div class="cl">&nbsp;</div>
+                    <div class="side-a">
+                      <h4>StarCraft II</h4>
+                      <ul class="rating">
+                        <li><span class="star full-star">&nbsp;</span></li>
+                        <li><span class="star full-star">&nbsp;</span></li>
+                        <li><span class="star full-star">&nbsp;</span></li>
+                        <li><span class="star full-star">&nbsp;</span></li>
+                        <li><span class="star empty-star">&nbsp;</span></li>
+                        <li><span class="votes">1.456 votes</span></li>
+                      </ul>
+                    </div>
+                    <div class="side-b">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie urna, id scelerisque leo sodales sit amet. Curabitur volutpat lorem euismod nunc tincidunt condi- mentum. Suspendisse gravida elementum mauris, in vulputate justo ultrices sit amet.</p>
+                    </div>
+                    <div class="cl">&nbsp;</div>
+                  </div>
+                  </li>
+                  <li class="fragment">
+                    <div class="image"> <img src="css/images/img10.jpg" alt="" /> </div>
+                    <div class="cnt">
+                      <div class="cl">&nbsp;</div>
+                      <div class="side-a">
+                        <h4>StarCraft II</h4>
+                        <ul class="rating">
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star empty-star">&nbsp;</span></li>
+                          <li><span class="votes">1.456 votes</span></li>
+                        </ul>
+                      </div>
+                      <div class="side-b">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie urna, id scelerisque leo sodales sit amet. Curabitur volutpat lorem euismod nunc tincidunt condi- mentum. Suspendisse gravida elementum mauris, in vulputate justo ultrices sit amet.</p>
+                      </div>
+                      <div class="cl">&nbsp;</div>
+                    </div>
+                  </li>
+                  <li class="fragment">
+                    <div class="image"> <img src="css/images/img10.jpg" alt="" /> </div>
+                    <div class="cnt">
+                      <div class="cl">&nbsp;</div>
+                      <div class="side-a">
+                        <h4>StarCraft II</h4>
+                        <ul class="rating">
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star empty-star">&nbsp;</span></li>
+                          <li><span class="votes">1.456 votes</span></li>
+                        </ul>
+                      </div>
+                      <div class="side-b">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie urna, id scelerisque leo sodales sit amet. Curabitur volutpat lorem euismod nunc tincidunt condi- mentum. Suspendisse gravida elementum mauris, in vulputate justo ultrices sit amet.</p>
+                      </div>
+                      <div class="cl">&nbsp;</div>
+                    </div>
+                  </li>
+                  <li class="fragment">
+                    <div class="image"> <img src="css/images/img10.jpg" alt="" /> </div>
+                    <div class="cnt">
+                      <div class="cl">&nbsp;</div>
+                      <div class="side-a">
+                        <h4>StarCraft II</h4>
+                        <ul class="rating">
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star full-star">&nbsp;</span></li>
+                          <li><span class="star empty-star">&nbsp;</span></li>
+                          <li><span class="votes">1.456 votes</span></li>
+                        </ul>
+                      </div>
+                      <div class="side-b">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie urna, id scelerisque leo sodales sit amet. Curabitur volutpat lorem euismod nunc tincidunt condi- mentum. Suspendisse gravida elementum mauris, in vulputate justo ultrices sit amet.</p>
+                      </div>
+                      <div class="cl">&nbsp;</div>
+                    </div>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-bot">
+          <div class="head">
+            <div class="head-cnt"> <a href="#" class="view-all">view all</a>
+              <h3>Top Reviews</h3>
+              <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+          <div class="col-articles articles">
+            <div class="cl">&nbsp;</div>
+            <div class="article">
+              <div class="image"> <a href="#"><img src="css/images/img4.jpg" alt="" /></a> </div>
+              <h4><a href="#">F.E.A.R.2</a></h4>
+              <p class="console"><strong>PSP3</strong></p>
+            </div>
+            <div class="article">
+              <div class="image"> <a href="#"><img src="css/images/img5.jpg" alt="" /></a> </div>
+              <h4><a href="#">FALLOUT 3</a></h4>
+              <p class="console"><strong>PC</strong></p>
+            </div>
+            <div class="article">
+              <div class="image"> <a href="#"><img src="css/images/img6.jpg" alt="" /></a> </div>
+              <h4><a href="#">STARCRAF II</a></h4>
+              <p class="console"><strong>PC</strong></p>
+            </div>
+            <div class="cl">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-bot">
+          <div class="head">
+            <div class="head-cnt"> <a href="#" class="view-all">view all</a>
+              <h3>Editor`s Pick</h3>
+              <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+          <div class="row-articles articles">
+            <div class="cl">&nbsp;</div>
+            <div class="article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img7.jpg" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">F.E.A.R.2</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie urna, id scelerisque leo sodales sit amet. Curabitur volutpat lorem euismod nunc tincidunt condimentum. Suspendisse gravida elementum mauris, in vulputate justo ultrices sit amet. Maecenas ultricies elit </p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img8.jpg" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">FALLOUT 3</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie urna, id scelerisque leo sodales sit amet. Curabitur volutpat lorem euismod nunc tincidunt condimentum. Suspendisse gravida elementum mauris, in vulputate justo ultrices sit amet. Maecenas ultricies elit in mi sagittis fringilla.</p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="article last-article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img9.jpg" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">STARCRAF II</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie urna, id scelerisque leo sodales sit amet. Curabitur volutpat lorem euismod nunc tincidunt condimentum. Suspendisse gravida elementum mauris, in vulputate justo ultrices sit amet. Maecenas ultricies elit in mi sagittis fringilla.</p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="cl">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Content -->
+    <!--  -->
+    <div id="sidebar">
+      <!-- Search -->
+      <div id="search" class="block">
+        <div class="block-bot">
+          <div class="block-cnt">
+            <form action="#" method="post">
+              <div class="cl">&nbsp;</div>
+              <div class="fieldplace">
+                <input type="text" class="field" value="Search" title="Search" />
+              </div>
+              <input type="submit" class="button" value="GO" />
+              <div class="cl">&nbsp;</div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- / Search -->
+      <!-- Sign In -->
+      <div id="sign" class="block">
+        <div class="block-bot">
+          <div class="block-cnt">
+            <div class="cl">&nbsp;</div>
+            <a href="#" class="button button-left">sign in</a> <a href="#" class="button button-right">create account</a>
+            <div class="cl">&nbsp;</div>
+            <p class="center"><a href="#">Help?</a>&nbsp;&nbsp;<a href="#">Forgot Password?</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- / Sign In -->
+      <div class="block">
+        <div class="block-bot">
+          <div class="head">
+            <div class="head-cnt">
+              <h3>Top Games</h3>
+            </div>
+          </div>
+          <div class="image-articles articles">
+            <div class="cl">&nbsp;</div>
+            <div class="article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img1.gif" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">TMNT</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie </p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img2.gif" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">F.E.A.R.2</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie </p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img3.gif" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">Steel Fury</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie </p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="cl">&nbsp;</div>
+            <a href="#" class="view-all">view all</a>
+            <div class="cl">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-bot">
+          <div class="head">
+            <div class="head-cnt">
+              <h3>Top Videos</h3>
+            </div>
+          </div>
+          <div class="image-articles articles">
+            <div class="cl">&nbsp;</div>
+            <div class="article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img1.gif" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">FALLOUT3</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie </p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img2.gif" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">Crysis</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie </p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="article">
+              <div class="cl">&nbsp;</div>
+              <div class="image"> <a href="#"><img src="css/images/img3.gif" alt="" /></a> </div>
+              <div class="cnt">
+                <h4><a href="#">F.E.A.R.2</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie </p>
+              </div>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <div class="cl">&nbsp;</div>
+            <a href="#" class="view-all">view all</a>
+            <div class="cl">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-bot">
+          <div class="head">
+            <div class="head-cnt">
+              <h3>Latest Articles</h3>
+            </div>
+          </div>
+          <div class="text-articles articles">
+            <div class="article">
+              <h4><a href="#">Dolor amet sodales leo</a></h4>
+              <small class="date">21.07.09</small>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie urna, id scele- risque leo sodales sit amet</p>
+            </div>
+            <div class="article">
+              <h4><a href="#">Amet sed lorem sit</a></h4>
+              <small class="date">20.07.09</small>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+            <div class="article">
+              <h4><a href="#">Adipsicing elit elementum</a></h4>
+              <small class="date">19.07.09</small>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie.</p>
+            </div>
+            <div class="article">
+              <h4><a href="#">Consectetur elit sed molestie</a></h4>
+              <small class="date">15.07.09</small>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum molestie.</p>
+            </div>
+            <div class="cl">&nbsp;</div>
+            <a href="#" class="view-all">view all</a>
+            <div class="cl">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Sidebar -->
+    <div class="cl">&nbsp;</div>
+    <!-- Footer -->
+    <div id="footer">
+      <div class="navs">
+        <div class="navs-bot">
+          <div class="cl">&nbsp;</div>
+          <ul>
+            <li><a href="#">community</a></li>
+            <li><a href="#">forum</a></li>
+            <li><a href="#">video</a></li>
+            <li><a href="#">cheats</a></li>
+            <li><a href="#">features</a></li>
+            <li><a href="#">downloads</a></li>
+            <li><a href="#">sports</a></li>
+            <li><a href="#">tech</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">pc</a></li>
+            <li><a href="#">xbox</a></li>
+            <li><a href="#">360</a></li>
+            <li><a href="#">wii</a></li>
+            <li><a href="#">ps3</a></li>
+            <li><a href="#">ps2</a></li>
+            <li><a href="#">psp</a></li>
+            <li><a href="#">ds</a></li>
+          </ul>
+          <div class="cl">&nbsp;</div>
+        </div>
+      </div>
+      <p class="copy">&copy; Sitename.com. Design by <a href="http://chocotemplates.com">ChocoTemplates.com</a></p>
+    </div>
+    <!-- / Footer -->
+  </div>
+</div>
+<!-- / Main -->
+</div>
+<!-- / Page -->
+</body>
 </html>

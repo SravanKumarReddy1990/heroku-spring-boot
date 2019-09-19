@@ -1,145 +1,149 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-   <head>
-      <meta charset="UTF-8"></meta>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+}
+
+/* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+navone {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}
+/* Style the list inside the menu */
+navone ul {
+  list-style-type: none;
+  padding: 0;
+}
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style the content */
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
 </head>
 <body>
-<link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"></link>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery-1.11.2.min.js"></script>
-<div class="section">
-    <div class="container">
-    	<div class="row">
-            <div class="col-md-4">
-    	    </div>
-    	</div>
-    	<div class="row">
-    		<div class="col-md-4 first">
-    		    <div class="well">
-            	    <h1 class="text-center h2"><span>Bootstrap 4 <br></br>Social Profile Cards </span><br></br>Created with <br></br> from  <br></br> by Shurvir Mori</h1>
-<form action="/action_page.php">
-<div class="form-group">
-  <label for="comment">ADD TO PROFILE:</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
-</div>
-<button type="submit" class="btn btn-default">Submit</button>
-</form>
-                </div>
-		    </div>
 
-    		<div class="col-md-4">	
-<form action="/action_page.php">
-    		    <div class="card profile-card-2">
-                    <div class="card-img-block">
-                        <img class="img-fluid" src="/images/pexelsphoto877695.jpeg" height="350" alt="Card image cap"></img>
-                    </div>
-                    <div class="card-body pt-4">
-                        <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="profile-image" class="profile"></img>
-<div class="form-group">
-    <input type="text" class="form-control" id="urlname" placeholder="ADD IMAGE URL MANDATARY"></input>
-    <input type="text" class="form-control" id="youtubeurlname" placeholder="ADD YOUTUE VIDEO URL NOT MANDATORY"></input>
-  </div>
-                        <h5 class="card-title">Shurvir Mori</h5>
-                        <p class="card-text"><div class="form-group">
-  <label for="comment">ADD TODAY DAIRY CONTENT:</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
-</div>
-<button type="submit" class="btn btn-default">Submit</button></p>
-                        <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                    </div>
-                </div>
-</form>
-    		</div>
+<header>
+  <h2>Cities</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="#">London</a></li>
+      <li><a href="#">Paris</a></li>
+      <li><a href="#">Tokyo</a></li>
+    </ul>
+  </nav>
+
+<nav>
+  <article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+<article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+
+</nav>
 
 
-    		<div class="col-md-4">	
-    		    <div class="card profile-card-2">
-                    <div class="card-img-block">
-                        <img class="img-fluid" src="/images/pexelsphoto877695.jpeg" height="350" alt="Card image cap"></img>
-                    </div>
-                    <div class="card-body pt-4">
-                        <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="profile-image" class="profile"></img>
-                        <h5 class="card-title">Shurvir Mori</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
- <iframe width="420" height="250"
-src="https://www.youtube.com/embed/tgbNymZ7vqY">
-</iframe>
-                        <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                    </div>
-                </div>
-    		</div>
-    		<div class="col-md-4">
-    		    <div class="card profile-card-2">
-                    <div class="card-img-block">
-                        <img class="img-fluid" src="/images/pexelsphoto877695.jpeg"  height="350" ></img>
-                    </div>
-                    <div class="card-body pt-5">
-                        <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="profile-image" class="profile"></img>
-                        <h5 class="card-title">Shurvir Mori</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                        <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                    </div>
-                </div>
-    		</div>
-    		<div class="col-md-4">
-    		    <div class="card profile-card-2">
-                    <div class="card-img-block">
-                        <img class="img-fluid" src="/images/pexelsphoto877695.jpeg" height="350" alt="Card image cap"></img>
-                    </div>
-                    <div class="card-body pt-5">
-                        <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="profile-image" class="profile"></img>
-                        <h5 class="card-title">Shurvir Mori</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                        <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                    </div>
-                </div>
-    		</div>
-    		<div class="col-md-4">
-    		    <div class="card profile-card-2">
-                    <div class="card-img-block">
-                        <img class="img-fluid" src="/images/pexelsphoto877695.jpeg"  height="350" alt="Card image cap"></img>
-                    </div>
-                    <div class="card-body pt-5">
-                        <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="profile-image" class="profile"></img>
-                        <h5 class="card-title">Shurvir Mori</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                        <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                    </div>
-                </div>
-    		</div>
-    		<div class="col-md-4">
-    		    <div class="card profile-card-2">
-                    <div class="card-img-block">
-                        <img class="img-fluid" src="/images/pexelsphoto877695.jpeg" height="350" alt="Card image cap"></img>
-                    </div>
-                    <div class="card-body pt-5">
-                        <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="profile-image" class="profile"></img>
-                        <h5 class="card-title">Shurvir Mori</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                        <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                    </div>
-                </div>
-    		</div>
-    		<div class="col-md-4">
-    		    <div class="card profile-card-2">
-                    <div class="card-img-block">
-                        <img class="img-fluid" src="/images/pexelsphoto877695.jpeg" height="350" alt="Card image cap"></img>
-                    </div>
-                    <div class="card-body pt-5">
-                        <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="profile-image" class="profile"></img>
-                        <h5 class="card-title">Shurvir Mori</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text Lorem Ipsum has been the industry's standard dummy text</p>
-                        <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div>
-                    </div>
-                </div>
-    		</div>
-    	    
-    	</div>
-    </div>
-</div>
-<link href="/css/profilestyle.css" rel="stylesheet" id="bootstrap-css"></link>
-<script src="/js/profilejs.js"></script>
+<nav>
+  <article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+<article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+</nav>
+
+<nav>
+  <article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+<article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+</nav>
+
+
+
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
 </body>
 </html>
+
